@@ -1,7 +1,13 @@
 [package]
 name = "raii-change-tracker"
+description = "tracks changes to data and notifies listeners"
 version = "0.1.0"
 authors = ["Andrew Straw <strawman@astraw.com>"]
+documentation = "https://docs.rs/raii-change-tracker/"
+repository = "https://github.com/astraw/raii-change-tracker"
+readme = "README.md"
+keywords = ["change", "notify", "track", "reactive", "watch"]
+license = "MIT/Apache-2.0"
 
 [dependencies]
 futures = "0.1"
