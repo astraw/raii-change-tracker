@@ -24,15 +24,13 @@ mutable `Modifier`. `Modifier` is a RAII scoped guard with two key properties:
   trait which checks if the underlying data was changed and, if so, notifies the
   listeners.
 
-Futhermore,
-[`DataTracker::as_ref()`](./struct.DataTracker.html#method.as_ref) returns a
-(non-mutable) reference to the data for cases when only read-only access to
-the data is needed.
+Futhermore, `DataTracker::as_ref()` returns a (non-mutable) reference to the
+data for cases when only read-only access to the data is needed.
 
-To implement tracking, when [`Modifier`](./struct.Modifier.html) is created,
-a copy of the original data is made and when `Modifier` is dropped, an
-equality check is performed. If the original and the new data are not equal,
-the callbacks are called with references to the old and the new values.
+To implement tracking, when `Modifier` is created, a copy of the original data
+is made and when `Modifier` is dropped, an equality check is performed. If the
+original and the new data are not equal, the callbacks are called with
+references to the old and the new values.
 
 ## License
 
@@ -52,9 +50,9 @@ conditions.
 
 ## Code of conduct
 
-Anyone who interacts with raii-change-tracker in any space including but not limited to
-this GitHub repository is expected to follow our
-[code of conduct](https://github.com/astraw/raii-change-tracker/blob/master/code_of_conduct.md)
+Anyone who interacts with raii-change-tracker in any space including but not
+limited to this GitHub repository is expected to follow our [code of
+conduct](https://github.com/astraw/raii-change-tracker/blob/master/code_of_conduct.md).
 
 [version-img]: https://img.shields.io/crates/v/raii-change-tracker.svg
 [version-url]: https://crates.io/crates/raii-change-tracker
