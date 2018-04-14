@@ -1,7 +1,7 @@
 [package]
 name = "raii-change-tracker"
 description = "tracks changes to data and notifies listeners"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Andrew Straw <strawman@astraw.com>"]
 documentation = "https://docs.rs/raii-change-tracker/"
 repository = "https://github.com/astraw/raii-change-tracker"
