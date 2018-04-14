@@ -112,7 +112,7 @@
 extern crate futures;
 
 use futures::sync::mpsc;
-use futures::{Future, Sink};
+use futures::Sink;
 
 /// Allow viewing and modifying data owned by `DataTracker`.
 ///
@@ -181,18 +181,10 @@ impl<T> Inner<T>
     where T: Clone + PartialEq
 {
     fn notify_listeners(&mut self, orig_value: T, new_value: T) {
-        let mut to_return = Vec::new();
-        let orig_map = std::mem::replace(&mut self.tx_map, Vec::new());
-        for on_changed_tx in orig_map.into_iter() {
-            match on_changed_tx
-                      .send((orig_value.clone(), new_value.clone()))
-                      .wait() { // TODO remove .wait() here
-                Ok(t) => to_return.push(t),
-                Err(_) => continue,
-            }
-        }
-        for el in to_return.into_iter() {
-            self.tx_map.push(el);
+        for on_changed_tx in self.tx_map.iter_mut() {
+            on_changed_tx
+                .start_send((orig_value.clone(), new_value.clone()))
+                .expect("notify listeners");
         }
     }
 }
