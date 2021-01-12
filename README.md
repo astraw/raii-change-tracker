@@ -1,5 +1,7 @@
 # raii-change-tracker - tracks changes to data and notifies listeners [![Version][version-img]][version-url] [![Status][status-img]][status-url] [![Doc][doc-img]][doc-url]
 
+**Update: the package has been deprecated in favor of https://github.com/astraw/async-change-tracker/**
+
 ## Documentation
 
 Documentation is available [here](https://docs.rs/raii-change-tracker/).
